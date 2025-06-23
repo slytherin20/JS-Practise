@@ -1,0 +1,20 @@
+.accordian{
+    width:70%;
+    margin:0 auto
+}
+.tabs div{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: gainsboro;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+.toggle{
+    background-color: transparent;
+    border:none;
+}
+.close,p{
+    display: none;
+}
