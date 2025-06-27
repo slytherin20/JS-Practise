@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width , initial-scale=1.0">
+    <title>Analog Clock</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="secs"></div>
+        <span class="number number-12">12</span>
+        <span class="number number-1">1</span>
+        <span class="number number-2">2</span>
+        <span class="number number-3">3</span>
+        <span class="number number-4">4</span>
+        <span class="number number-5">5</span>
+        <span class="number number-6">6</span>
+        <span class="number number-7">7</span>
+        <span class="number number-8">8</span>
+        <span class="number number-9">9</span>
+        <span class="number number-10">10</span>
+        <span class="number number-11">11</span>
+    </div>
+    <style>
+        .clock {
+            --w: 200px;
+            width:var(--w);
+            height: 200px;
+            border: solid 5px rgb(0, 0, 0);
+            border-radius: 100%;
+            position: relative;
+            padding: 5px;
+            --r: calc((var(--w) - 15px) /2);
+        }
+
+        .hour,
+        .min,
+        .secs {
+            position: absolute;
+
+        }
+
+        .hour,
+        .min {
+            height: 0px;
+            width: 45%;
+        }
+
+        .hour {
+
+            width: 25%;
+            border: solid black 2px;
+            left: 22%;
+            z-index:3;
+        }
+
+        .min {
+
+            border: solid gray 2px;
+            z-index:2;
+        }
+
+        .secs {
+            height: 0px;
+            width: 45%;
+            border: solid red 1px;
+            z-index:1;
+        }
+
+
+        .min,
+        .secs,
+        .hour {
+            top: 50%;
+            transform-origin: right;
+            transform: rotate(90deg);
+        }
+
+        .number {
+            font-weight: bold;
+            position: absolute;
+            display: grid;
+            place-content: center;
+        }
+
+        .number-12 {
+            --d: 270deg; /* In maths, clock starts at 3:00 so 12:00 is -90deg that is 360-90=270*/
+        }
+
+        .number-1 {
+            --d: 300deg;
+            
+        }
+
+        .number-2 {
+            --d: 330deg;
+          
+
+        }
+
+        .number-3 {
+            --d: 0deg;
+          
+
+        }
+
+        .number-4 {
+            --d: 30deg;
+          
+
+        }
+
+        .number-5 {
+            --d: 60deg;
+           
+
+        }
+
+        .number-6 {
+            --d: 90deg;
+          
+
+        }
+
+        .number-7 {
+            --d: 120deg;
+           
+
+        }
+
+        .number-8 {
+            --d: 150deg;
+            
+        }
+
+        .number-9 {
+            --d: 180deg;
+           
+
+        }
+
+        .number-10 {
+            --d: 210deg;
+         
+
+        }
+
+        .number-11 {
+            --d: 240deg;
+            
+
+        }
+        .number{
+             --x: calc(var(--r) + (var(--r) * cos(var(--d))));  /* x= r+r*cos(deg)*/
+            --y: calc(var(--r) + (var(--r) * sin(var(--d)))); /* y = r+ r*sin(deg) */
+            left:var(--x);  /*  Sets x coodinate of number*/
+            top:var(--y);
+            width:15px;  /* We set width of each number so that numbers can come inside of clock instead of going out */
+        }
+    </style>
+    <script src="./index.js" />
+</body>
+
+</html>
